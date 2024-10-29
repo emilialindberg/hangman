@@ -16,7 +16,28 @@ img.onload = function() {
 
 
 
+
+const hangmanWords = [
+  "Apple", "Banana", "Chair", "Dolphin", "Eagle", "Forest", "Garden", "House", "Island", "Jacket", "Kitten", "Lemon", "Mountain",
+  "Notebook", "Ocean", "Pencil", "Quiet", "River", "Sunset", "Tiger", "Umbrella", "Village", "Window", "Yellow", "Zebra", "Angel",
+  "Bottle", "Candle", "Dragon", "Earth", "Flower", "Guitar", "Helmet", "Iceberg", "Jungle", "Kangaroo", "Ladder", "Monkey", "Noodle",
+  "Orange", "Pirate", "Queen", "Rainbow", "Starfish", "Tomato", "Universe", "Violin", "Waterfall", "Yogurt", "Zoo", "Balloon",
+  "Camera", "Desert", "Elephant", "Family", "Giraffe", "Happy", "Island", "Jelly", "Kite", "Laptop", "Market", "Nest", "Olive",
+  "Panda", "Robot", "Shadow", "Travel", "Under", "Vacation", "Whistle", "Yawn", "Zipper", "Bridge", "Clock", "Daisy", "Earthquake"
+]
+
+
+
+
 /*Kelly testar lägga till*/
+
+//Skriv ut vilken bokstav valdes
+function displayKeyPressed(keyboardEvent) {
+  let pressedKey = keyboardEvent.key
+  document.getElementById("showLetter").textContent = pressedKey
+
+  keyIsA(pressedKey)
+}
 
 
 // Visar dolda delar
