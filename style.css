@@ -15,16 +15,6 @@ body{
     
 }
 
-#hangman-canvas{
-    width: 20vw;
-    height: 50vh;
-    display: block;
-    margin: 20px auto;
-    background-color: rgb(146, 97, 179);
-    border: 2px solid rgb(151, 110, 134);
-    border-radius: 5px;
-}
-
 #word-container{
     display: flex;
     font-size: 15px;
@@ -41,10 +31,10 @@ body{
 }
 
 .word-display .letter{
+    min-height: 30px;
     width: 28px;
-    height: 1px;
     border-bottom: 3px solid #000000;
-    
+    font-size: large;
 }
 
 #letters-container{
@@ -110,6 +100,7 @@ input {
     fill: none;
     stroke: #000;
     stroke-width: 3px;
+    
   }
 
   .cls-3, .cls-4, .cls-5 {
