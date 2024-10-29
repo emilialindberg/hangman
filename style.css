@@ -1,0 +1,101 @@
+body{
+    background-color: rgb(76, 44, 105);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    height: 70vh;
+    margin: 0;
+
+}
+
+#gamecontainer{
+    text-align: center;
+    max-width: 700px;
+    background: lightgrey;
+    
+}
+
+#hangman-canvas{
+    width: 20vw;
+    height: 50vh;
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(146, 97, 179);
+    border: 2px solid rgb(151, 110, 134);
+    border-radius: 5px;
+}
+
+#word-container{
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: black;
+    justify-content: center;
+}
+
+.word-display{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin-right: 30px;
+}
+
+.word-display .letter{
+    width: 28px;
+    height: 1px;
+    border-bottom: 3px solid #000000;
+    
+}
+
+#letters-container{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#letters-container .letter{ /*Styling av bokstäverna */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    font-size: 1.5em;
+    border: 2px solid rgb(68, 9, 102);
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: black;
+    transition: background-color 0.3s, color 0.3;
+
+}
+#letters-container .letter:hover{
+    background-color: rgb(164, 102, 170);
+}
+
+#letters-container .letter.disabled{ /*När bokstaven redan har använts så blir den grå */
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+p{
+    color: black;
+}
+
+
+#new-game {
+    background-color: rgb(220, 187, 252);
+    margin-bottom: 50px;
+    height: 5vh;
+    width: 10vw;
+    color: rgb(44, 21, 44);
+    font-family: sans-serif;
+    font-weight: 800;
+    border: solid black;
+    border-radius: 10%;
+}
