@@ -15,7 +15,7 @@ img.onload = function() {
 
 
 
-
+/*Kelly testar lägga till*/
 
 const hangmanWords = [
   "Apple", "Banana", "Chair", "Dolphin", "Eagle", "Forest", "Garden", "House", "Island", "Jacket", "Kitten", "Lemon", "Mountain",
@@ -27,9 +27,31 @@ const hangmanWords = [
 ]
 
 
+// Väljer ett slumpmässigt ord
+function decideRandomWord(myArray) {
+  const randomIndex = Math.floor(Math.random() * myArray.length)
+  return myArray[randomIndex]
+}
+const randomWord = decideRandomWord(hangmanWords)
+console.log(randomWord)
+
+// Bokstav för bokstav i ett ord (Iterate Over Characters of a String)
+
+let str = randomWord
+for (let i = 0; i < str.length; i++) {
+  console.log(str[i])
+}
 
 
-/*Kelly testar lägga till*/
+
+// Om bokstaven passar i ordet, spara
+
+
+
+
+
+
+
 
 //Skriv ut vilken bokstav valdes
 function displayKeyPressed(keyboardEvent) {
@@ -74,6 +96,7 @@ function showOnlyHead() {
   toggleVisibility("head")
 }
 
+
 // Allt ska vara dolt i början
 document.addEventListener("DOMContentLoaded", function() {
   const svgElements = ["ground", "scaffold", "legs", "arms", "body", "head"]
@@ -81,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById(id).style.visibility = 'hidden'
   })
 
-  // Visar en del när man trycker på en button
+  // Visar en del när man trycker på en button -> gör om till visa en del när man gissat fel!
   document.getElementById("show-ground-btn").addEventListener("click", showOnlyGround)
   document.getElementById("show-scaffold-btn").addEventListener("click", showOnlyScaffold)
   document.getElementById("show-head-btn").addEventListener("click", showOnlyHead)

@@ -99,3 +99,34 @@ p{
     border: solid black;
     border-radius: 10%;
 }
+
+
+
+input {
+    text-transform: uppercase;
+}
+
+
+/*Hänggubbe styling*/
+.cls-1, .cls-2 {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+  }
+
+  .cls-3, .cls-4, .cls-5 {
+    fill: #000;
+    stroke-width: 0px;
+  }
+
+  .cls-4 {
+    fill-rule: evenodd;
+  }
+
+  .cls-2 {
+    stroke-linecap: round;
+  }
+
+  .cls-5 {
+    fill-opacity: 0.1;
+  }
