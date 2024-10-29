@@ -5,9 +5,7 @@ body{
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    height: 70vh;
     margin: 0;
-
 }
 
 #gamecontainer{
