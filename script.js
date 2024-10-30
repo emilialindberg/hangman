@@ -1,22 +1,62 @@
-const canvas = document.getElementById('hangman-canvas');
-const ctx = canvas.getContext('2d');
-
-const img = new Image(); // Skapa nytt bildobjekt
-img.src = "hangman.svg"; // Ladda bilden från en URL
-
-// Väntar tills bilden är laddad innan utskrift
-img.onload = function() {
-  ctx.drawImage(img, 5, 50, 250, 90); // placering x,y och bredd,höjd.
-};
+const hangmanWords = [
+  "Apple", "Chair", "Eagle", "House", "Lemon", "Quiet", "River", "Tiger", "Angel", "Earth", "Happy", "Jelly", "Kite", "Olive",
+  "Panda", "Robot", "Under", "Yawn"
+];
 
 
+// Väljer ett slumpmässigt ord
+function decideRandomWord(myArray) {
+  const randomIndex = Math.floor(Math.random() * myArray.length)
+  return myArray[randomIndex]
+}
+const randomWord = decideRandomWord(hangmanWords)
+console.log(randomWord) // skriv ut det hemliga ordet så det blir lättare att utveckla/testa
 
 
+function findLetterInWord(letter, word) {
+  word = word.toUpperCase() //konverterar till stora bokstäver för att kunna jämföra
+  letter = letter.toUpperCase() //konverterar till stora bokstäver för att kunna jämföra
+  let found = false //håll koll på om bokstaven är hittad
+
+  // for-loopar igenom ordet. if-kollar om bokstav stämmer med ord.
+  for (let pos = 0; pos < word.length; pos++) {
+    if (letter === word[pos]) {
+      document.getElementById("letter-"+pos).textContent = letter // fyll i bokstaven på rätt plats genom att använda loopens position
+      found = true //markerar att bokstaven är hittad=true
+    }
+  }
+  if (!found) { //Om bokstaven inte passar i ordet så triggas showNextBodyPart
+    showNextBodyPart();
+  }
+}
+
+const showBodyParts = [
+  showOnlyGround,
+  showOnlyScaffold,
+  showOnlyLegs,
+  showOnlyArms,
+  showOnlyBody,
+  showOnlyHead,
+];
+
+function showNextBodyPart() {
+  // kollar om det finns bodyparts kvar att visa
+  if (showBodyParts.length > 0) {
+    const showPart = showBodyParts.shift();
+    showPart();
+  } else {
+    alert("Game over!");
+  }
+}
 
 
+function verifyInput() {
+  let letter = document.getElementById("verify-input").value
+  findLetterInWord(letter, randomWord)
+  document.getElementById("verify-input").value = ""; // töm input fältet / nollställ
+}
 
 
-/*Kelly testar lägga till*/
 
 
 // Visar dolda delar
@@ -53,6 +93,8 @@ function showOnlyHead() {
   toggleVisibility("head")
 }
 
+
+
 // Allt ska vara dolt i början
 document.addEventListener("DOMContentLoaded", function() {
   const svgElements = ["ground", "scaffold", "legs", "arms", "body", "head"]
@@ -60,21 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById(id).style.visibility = 'hidden'
   })
 
-  // Visar en del när man trycker på en button
-  document.getElementById("show-ground-btn").addEventListener("click", showOnlyGround)
-  document.getElementById("show-scaffold-btn").addEventListener("click", showOnlyScaffold)
-  document.getElementById("show-head-btn").addEventListener("click", showOnlyHead)
-  document.getElementById("show-body-btn").addEventListener("click", showOnlyBody)
-  document.getElementById("show-arms-btn").addEventListener("click", showOnlyArms)
-  document.getElementById("show-legs-btn").addEventListener("click", showOnlyLegs)
 
-  const inputField = document.getElementById('key-input')
-  inputField.addEventListener('keydown', displayKeyPressed)
+
+
+  document.getElementById("verify-btn").addEventListener("click", verifyInput) // kör när man klickar på knappen för att "spela"
 })
-
-
-function keyIsA(pressedKey) {
-  if (pressedKey === 'A' || pressedKey === 'a')  {
-    showOnlyGround()
-  }
-}
