@@ -7,13 +7,26 @@ body{
     display: flex;
     margin: 0;
     height: 100vh;
+    width: 100vw;
+}
+
+.wrong-letters {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    position: absolute;
+
+    h1 {
+        font-size: 1rem;
+        color: black;
+    }
 }
 
 #gamecontainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25rem;
+    width: 30rem;
     height: 50rem;
     background: lightgrey;
     border-radius: 0.5rem;
@@ -123,6 +136,51 @@ input {
     border: solid black;
     border-radius: 0.5rem;
 }
+
+#you-won-popup {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 15rem;
+    width: 20rem;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        width: 6rem;
+        height: 3rem;
+        border-radius: 0.4rem;
+        border: none;
+        background-color: rgb(218, 187, 254);
+    }
+}
+
+#you-lost-popup {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 15rem;
+    width: 20rem;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        width: 6rem;
+        height: 3rem;
+        border-radius: 0.4rem;
+        border: none;
+        background-color: rgb(218, 187, 254);
+    }
+}
+
+
+
 
 
 
