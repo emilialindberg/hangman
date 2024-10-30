@@ -20,7 +20,6 @@ body{
         font-size: 1rem;
         color: black;
     }
-
 }
 
 #gamecontainer{
@@ -40,7 +39,6 @@ body{
     justify-content: center;
     gap: 2rem;
 }
-
 
 #word-container{
     display: flex;
@@ -184,8 +182,6 @@ input {
 
 
 
-
-=======
 
 
 /*Hänggubbe styling*/

@@ -66,14 +66,6 @@ function checkWin() {
 
 
 
-// Väljer ett slumpmässigt ord
-function decideRandomWord(myArray) {
-  const randomIndex = Math.floor(Math.random() * myArray.length)
-  return myArray[randomIndex]
-}
-const randomWord = decideRandomWord(hangmanWords)
-console.log(randomWord) // skriv ut det hemliga ordet så det blir lättare att utveckla/testa
-
 // Function som gör dolda delar synliga
 function toggleVisibility(id) {
   const element = document.getElementById(id)
@@ -144,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
   svgElements.forEach(id => {
       document.getElementById(id).style.visibility = 'hidden'
   })
-
 
   document.getElementById("verify-btn").addEventListener("click", verifyInput) // kör när man klickar på knappen för att "spela"
 })
