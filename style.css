@@ -100,7 +100,6 @@ p{
     color: black;
 }
 
-
 #new-game {
     background-color: rgb(220, 187, 252);
     height: 5vh;
@@ -111,7 +110,6 @@ p{
     border: solid black;
     border-radius: 0.5rem;
 }
-
 
 
 input {
@@ -179,12 +177,8 @@ input {
     }
 }
 
-
-
-
-
-
 /*Hänggubbe styling*/
+
 .cls-1, .cls-2 {
     fill: none;
     stroke: #000;
@@ -208,3 +202,17 @@ input {
   .cls-5 {
     fill-opacity: 0.1;
   }
+
+  h1{
+    color: purple
+  }
+
+  .wrong-letters{
+    margin-top: 10rem;
+    text-align: center;
+    }
+
+    #wrong-letters-output {
+        color: grey;
+        font-size: large;
+    }

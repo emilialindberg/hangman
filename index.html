@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    
     <div id="gamecontainer">
+      <div class="h1"><h1>Hangman</h1></div>
       <svg
         id="Layer_1"
         data-name="Layer 1"
@@ -50,15 +52,17 @@
           d="M405.2,151.7c.7-.5.8-1.4.3-2.1-.5-.7-1.4-.8-2.1-.3l1.8,2.4ZM397.1,154.1c-.7.5-.8,1.4-.3,2.1.5.7,1.4.8,2.1.3l-1.8-2.4ZM399.9,149.2c-.5-.7-1.4-.8-2.1-.3-.7.5-.8,1.4-.3,2.1l2.4-1.8ZM402.3,157.4c.5.7,1.4.8,2.1.3.7-.5.8-1.4.3-2.1l-2.4,1.8ZM400.4,166.7c-.8.3-1.2,1.2-.9,1.9.3.8,1.2,1.2,1.9.9l-1.1-2.8ZM403.2,169.7c.5.7,1.4.9,2.1.4.7-.5.9-1.4.4-2.1l-2.5,1.6ZM347.9,134.2c-2.9,21.3,12,41,33.4,43.9l.4-3c-19.7-2.7-33.5-20.8-30.8-40.5l-3-.4ZM381.2,178.1c21.3,2.9,41-12,43.9-33.4l-3-.4c-2.7,19.7-20.8,33.5-40.5,30.8l-.4,3ZM425.1,144.8c2.9-21.3-12-41-33.4-43.9l-.4,3c19.7,2.7,33.5,20.8,30.8,40.5l3,.4ZM391.8,100.9c-21.3-2.9-41,12-43.9,33.4l3,.4c2.7-19.7,20.8-33.5,40.5-30.8l.4-3ZM403.4,149.3l-6.3,4.8,1.8,2.4,6.3-4.8-1.8-2.4ZM397.5,151.1l4.8,6.3,2.4-1.8-4.8-6.3-2.4,1.8ZM356.5,9l1,107h3s-1-107-1-107h-3ZM401.5,169.5c.2,0,.7-.2,1-.1.4,0,.5.1.7.3l2.5-1.6c-.8-1.2-1.9-1.6-2.9-1.7-.9,0-1.8.1-2.4.3l1.1,2.8Z"
         />
       </svg>
+
       <section class="wrong-letters">
         <h1>Used letters</h1>
         <p id="wrong-letters-output"></p>
       </section>
+
       <section class="guess-area">
         <input maxlength="1" id="verify-input" />
         <button id="verify-btn">Verify</button>
       </section>
-      <p id="showLetter"></p>
+      
 
       <div id="word-container">
         <ul class="word-display">
@@ -69,8 +73,9 @@
           <li class="letter" id="letter-4"></li>
         </ul>
       </div>
+
       <div id="message">
-        <p>Incorrect guesses:<b id="counterNumber"> 0 </b> <b>/ 6</b></p>
+        <p>Incorrect guesses:<b id="counter">0</b> <b>/ 6</b></p>
       </div>
 
       <button id="new-game">New Game</button>
@@ -78,13 +83,13 @@
       <div id="you-won-popup">
         <p id="you-won-text"></p>
         <p>Want to play again?</p>
-        <button>Play again</button>
+        <button id="wonBtn">Play again</button>
       </div>
 
       <div id="you-lost-popup">
         <p id="you-lost-text"></p>
         <p>Want to play again?</p>
-        <button>Play again</button>
+        <button id="lostBtn">Play again</button>
       </div>
 
     </div>
