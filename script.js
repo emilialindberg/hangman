@@ -1,15 +1,14 @@
 // Skapa lista
 
 const hangmanWords = [
-  "Apple", "Banana", "Cherry", "Orange", "Grapes", "Lemony", "Mangoes", 
-    "Papaya", "Tomato", "Jungle", "Donuts", "Radish", "Peanut", "Wizard", 
-    "Rocket", "Candle", "Brunch", "Guitar", "Salmon", "Circle", "Travel", 
-    "Puzzle", "Coffee", "Beauty", "Kitten", "School", "Market", "Spirit", 
-    "Tiger", "Frozen", "Silver", "Harvest", "Anchor", "Breeze", "Magnet", 
-    "Plenty", "Summit", "Stream", "Savory", "Floral", "Tackle", "Charming", 
-    "Winter", "Spirit", "Thrill", "Voyage", "Rafting", "Crayon", "Jigsaw", 
-    "Falcon", "Knight", "Turtle", "Funnel", "Glisten", "Stadium", "Pirate", 
-    "Muffin", "Banter", "Jacket", "Pillow", "Unique", "Valley", "Wealth"
+  "Banana", "Cherry", "Orange", "Grapes", "Lemony", 
+  "Papaya", "Tomato", "Jungle", "Donuts", "Radish", "Peanut", "Wizard", 
+  "Rocket", "Candle", "Brunch", "Guitar", "Salmon", "Circle", "Travel", 
+  "Puzzle", "Coffee", "Beauty", "Kitten", "School", "Market", "Spirit", 
+  "Frozen", "Silver", "Anchor", "Breeze", "Magnet", "Wealth", "Valley", 
+  "Plenty", "Summit", "Stream", "Savory", "Floral", "Tackle", "Unique", 
+  "Winter", "Spirit", "Thrill", "Voyage", "Crayon", "Jigsaw", "Pillow", 
+  "Falcon", "Knight", "Turtle", "Funnel", "Pirate", "Jacket", "Banter"
 ]
 let wrongLetters = []
 let counterNumber = 0
@@ -28,31 +27,25 @@ console.log(randomWord)
 
 /********************** Main functions **************************/
 
-// Hittar bokstaven i ett ord
+//Hittar bokstaven i ett ord
 
 function findLetterInWord(letter, word) {
-  word = word.toUpperCase() // Konverterar till stora bokstäver för att kunna jämföra
-  letter = letter.toUpperCase() // -""-
-  let found = false // för att hålla koll på om bokstaven finns i ordet eller ej - EJ från början
+word = word.toUpperCase();
+letter = letter.toUpperCase();
 
-  // For-loopar igenom ordet. if-kollar om bokstav stämmer med ord.
+//For-loopar igenom ordet. if-kollar om bokstav stämmer med ord.
+for (let pos = 0; pos < word.length; pos++) {
+  if (letter === word[pos]) {
+    document.getElementById("letter-" + pos).textContent = letter // fyll i bokstaven på rätt plats genom att använda loopens position
+    checkWin(); //Kollar om spelaren har vunnit
+    return; // Gå ut från funktionen
+  }
+}
 
-  for (let pos = 0; pos < word.length; pos++) {
-    if (letter === word[pos]) {
-      document.getElementById("letter-"+pos).textContent = letter // fyll i bokstaven på rätt plats genom att använda loopens position
-      found = true // markerar att bokstaven är hittad=true
-    }
-  }
-
-  if (!found) { // Om bokstaven inte passar i ordet så triggas showNextBodyPart etc
-    showNextBodyPart();
-    wrongLetters.push(letter)
-    updateWrongLettersDisplay()
-    incorrectGuessCount()
-  }
-  else { // Annars kolla om hela ordet har blivit gissad
-    checkWin()
-  }
+showNextBodyPart();
+wrongLetters.push(letter);
+updateWrongLettersDisplay();
+incorrectGuessCount();
 }
 
 // Funktion för att öka incorrect-guess-texten
@@ -78,7 +71,7 @@ function checkWin() {
     const letterElement = document.getElementById('letter-' + i)
 
     if(!letterElement.textContent) { // Om det finns bokstäver kvar att gissa så är inte Win
-      return // break out of function, there are words left d(^.^)b
+      return // Gå ut från funktionen
     }
   }
 
