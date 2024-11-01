@@ -27,26 +27,32 @@ console.log(randomWord)
 
 /********************** Main functions **************************/
 
-//Hittar bokstaven i ett ord
-
-function findLetterInWord(letter, word) {
-word = word.toUpperCase();
-letter = letter.toUpperCase();
-
-//For-loopar igenom ordet. if-kollar om bokstav stämmer med ord.
-for (let pos = 0; pos < word.length; pos++) {
-  if (letter === word[pos]) {
-    document.getElementById("letter-" + pos).textContent = letter // fyll i bokstaven på rätt plats genom att använda loopens position
-    checkWin(); //Kollar om spelaren har vunnit
-    return; // Gå ut från funktionen
-  }
-}
-
-showNextBodyPart();
-wrongLetters.push(letter);
-updateWrongLettersDisplay();
-incorrectGuessCount();
-}
+// Hittar bokstaven i ett ord
+    
+    function findLetterInWord(letter, word) {
+      word = word.toUpperCase() // Konverterar till stora bokstäver för att kunna jämföra
+      letter = letter.toUpperCase() // -""-
+      let found = false // för att hålla koll på om bokstaven finns i ordet eller ej - EJ från början
+    
+      // For-loopar igenom ordet. if-kollar om bokstav stämmer med ord.
+    
+      for (let pos = 0; pos < word.length; pos++) {
+        if (letter === word[pos]) {
+          document.getElementById("letter-"+pos).textContent = letter // fyll i bokstaven på rätt plats genom att använda loopens position
+          found = true // markerar att bokstaven är hittad=true
+        }
+      }
+    
+      if (!found) { // Om bokstaven inte passar i ordet så triggas showNextBodyPart etc
+        showNextBodyPart();
+        wrongLetters.push(letter)
+        updateWrongLettersDisplay()
+        incorrectGuessCount()
+      }
+      else { // Annars kolla om hela ordet har blivit gissad
+        checkWin()
+      }
+    }
 
 // Funktion för att öka incorrect-guess-texten
 
